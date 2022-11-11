@@ -5,13 +5,16 @@ const getCourseNumber = course => (
     course.id.slice(1)
   );
   
-  const Course = ({ course }) => (
-    <TouchableOpacity style={styles.courseButton}>
-      <Text style={styles.courseText}>
-        {`CS ${getCourseNumber(course)}\n${course.meets}`}
-      </Text>
-    </TouchableOpacity>
-  );
+
+const Course = ({course, isDisabled, isSelected, select}) => (
+  <TouchableOpacity style={styles[isSelected ? 'courseButtonSelected' : isDisabled ? 'courseButtonDisabled' : 'courseButton']}
+      onPress={() => { if (!disabled) select(course); }}>
+    <Text style={styles.courseText}>
+      {`CS ${getCourseNumber(course)}\n${course.meets}`}
+    </Text>
+  </TouchableOpacity>
+);
+
 
 const styles = StyleSheet.create({
   courseButton: {
@@ -25,6 +28,9 @@ const styles = StyleSheet.create({
     minWidth: 90,
     maxWidth: 90,
     backgroundColor: '#66b0ff',
+  },
+  courseButtonSelected: {
+    color: '#004a99'
   },
   courseText:{
     color: '#fff',

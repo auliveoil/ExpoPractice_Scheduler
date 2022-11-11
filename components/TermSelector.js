@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 
 const TermButton = ({term, setSelectedTerm, isActive}) => (
   <TouchableOpacity style={styles[isActive ? 'termButtonActive' : 'termButton']} 
@@ -6,18 +6,6 @@ const TermButton = ({term, setSelectedTerm, isActive}) => (
     <Text style={styles.termText}>{term}</Text>
   </TouchableOpacity>
 );
-
-  const termButtonBase = {
-    flex: 1,
-    borderRadius: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
-    margin: 10,
-    height: 40,
-    padding: 10,
-    minWidth: 90,
-    maxWidth: 90,
-  };
     
   const TermSelector = ({terms, selectedTerm, setSelectedTerm}) => (
     <View style={styles.termSelector}>
@@ -30,7 +18,19 @@ const TermButton = ({term, setSelectedTerm, isActive}) => (
       }
     </View>
   );
-  
+
+  const termButtonBase = {
+    flex: 1,
+    borderRadius: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 10,
+    height: 40,
+    padding: 10,
+    minWidth: 90,
+    maxWidth: 90,
+  };
+
   const styles = StyleSheet.create({
     termSelector: {
       flexDirection: 'row',
@@ -38,32 +38,12 @@ const TermButton = ({term, setSelectedTerm, isActive}) => (
       width: 350,
     },
     termButton: {
-      flex: 1,
-      borderRadius: 5,
-      justifyContent: 'center',
-      alignItems: 'center',
-      margin: 10,
-      height: 40,
-      padding: 10,
-      minWidth: 90,
-      maxWidth: 90,
       backgroundColor: '#4f9f64',
-      termButtonBase,
-      backgroundColor: '#4f9f64',
+      termButtonBase
     },
     termButtonActive: {
-        flex: 1,
-        borderRadius: 5,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 10,
-        height: 40,
-        padding: 10,
-        minWidth: 90,
-        maxWidth: 90,
         backgroundColor: '#105f25',
-        termButtonBase,
-        backgroundColor: '#105f25',
+        termButtonBase
     },
     termText: {
       color: '#fff',
